@@ -31,6 +31,7 @@ return wallet.satoshiCredits += satoshis
 
 
 
+
 // ==========================================
 // 2. Crie a Função de Saque
 // ==========================================
@@ -42,9 +43,6 @@ function withdrawBTC(btcValue, wallet) {
 
 return wallet.satoshiCredits -+ satoshis
 }
-
-
-
 
 
 
