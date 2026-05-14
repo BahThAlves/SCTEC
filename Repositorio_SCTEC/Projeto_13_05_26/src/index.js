@@ -3,6 +3,8 @@ import { createInterface } from "node:readline/promises";
 import { writeFile, readFile } from "node:fs/promises"; // file-system
 
 
+
+
 async function buscarUsuario(username) {
   const urlBase = "https://api.github.com/users/";
 
@@ -23,6 +25,7 @@ async function buscarUsuario(username) {
     console.log(error);
   }
 }
+
 
 
 
@@ -74,6 +77,11 @@ async function salvarArquivo(usuario) {
 
 
 
+
+
+
+
+
 async function main() {
     const interfaceConsole = createInterface(stdin, stdout);
 
@@ -94,7 +102,13 @@ async function main() {
 
         const usuario = await buscarUsuario(respostaOperação);
         // callstack -> stacktrace
-        console.log(`\n\nUser encontrado :D\nNome: ${usuario.name}\nUserName: ${usuario.login}`)
+        if(!usuario) {
+            console.log(`\nO user "${respostaOperação}" não foi encontrado`)
+            return
+        }
+
+
+        console.log(`\n\nUser encontrado :>\nNome: ${usuario.name}\nUserName: ${usuario.login}`)
 
 
 
